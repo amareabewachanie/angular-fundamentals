@@ -1,39 +1,11 @@
 {
   "births": [
     {
-      "id": 1,
-      "firstName" : "Bellisa",
+      "id": "3",
+      "firstName": "Ekrem edited",
       "middleName": "Mohammed",
       "lastName": "Ahmed",
-      "dateOfBirth": "1992/01/01"
-    },
-    {
-      "id": 2,
-      "firstName" : "Abubeker",
-      "middleName": "Mohammed",
-      "lastName": "Ahmed",
-      "dateOfBirth": "1992/01/01"
-    },
-    {
-      "id": 3,
-      "firstName" : "Ekrem",
-      "middleName": "Mohammed",
-      "lastName": "Ahmed",
-      "dateOfBirth": "1992/01/01"
-    },
-    {
-      "id": 4,
-      "firstName" : "Fetiya",
-      "middleName": "Mohammed",
-      "lastName": "Ahmed",
-      "dateOfBirth": "1992/01/01"
-    },
-    {
-      "id": 5,
-      "firstName" : "Abdi",
-      "middleName": "Mohammed",
-      "lastName": "Ahmed",
-      "dateOfBirth": "1992/01/01"
+      "dateOfBirth": "1992-01-01"
     }
   ]
 }

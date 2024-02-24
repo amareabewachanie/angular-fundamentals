@@ -13,11 +13,19 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 export class BirthComponent implements OnInit{
   births: any;
   httpClient:HttpClient = inject(HttpClient);
+  message:string='';
   ngOnInit() {
     this.httpClient.get('http://localhost:3000/births').subscribe(
       (births)=>{
         this.births = births;
       }
     )
+  }
+  deleteBirth(id: number){
+    if(confirm('Are you sure you want to delete?')){
+      this.httpClient.delete(`http://localhost:3000/births/${id}`).subscribe(()=>{
+        this.message = 'User deleted successfully!!!';
+      })
+    }
   }
 }

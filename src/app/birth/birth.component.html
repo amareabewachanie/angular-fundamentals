@@ -1,3 +1,4 @@
+ <span *ngIf="message" class="alert alert-success me-2 w-50">{{message}}</span>
 <table class="table table-bordered">
 <thead>
 <tr>
@@ -15,7 +16,9 @@
       <td>{{birth.firstName}} {{birth.middleName}} {{birth.lastName}}</td>
       <td>{{birth.dateOfBirth}}</td>
       <td>
-        <a [routerLink]="['/births', birth.id]"><i class="bi bi-eye">Details</i></a>
+        <a [routerLink]="['/births', birth.id]" class="btn btn-primary"><i class="bi bi-eye">Details</i></a>
+        <a [routerLink]="['/births/edit', birth.id]" class="btn btn-warning"><i class="bi bi-pencil">Edit</i></a>
+        <button class="btn btn-danger" (click)="deleteBirth(birth?.id)"><i class="bi bi-trash"></i>Delete</button>
       </td>
     </tr>
   </tbody>

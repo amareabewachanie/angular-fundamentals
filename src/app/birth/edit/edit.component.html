@@ -1,0 +1,21 @@
+<form #birthForm="ngForm" (ngSubmit)="saveBirth()">
+<div class="form-group">
+  <label for="firstName" class="form-label">First Name</label>
+  <input class="form-control" type="text" [(ngModel)]="birth.firstName" name="firstName" id="firstName">
+</div>
+
+  <div class="form-group">
+    <label for="middleName" class="form-label">Middle Name</label>
+    <input class="form-control" type="text" [(ngModel)]="birth.middleName" name="middleName" id="middleName">
+  </div>
+  <div class="form-group">
+    <label for="lastName" class="form-label">Last Name</label>
+    <input  class="form-control"type="text" [(ngModel)]="birth.lastName" name="lastName" id="lastName">
+  </div>
+  <div class="form-group">
+    <label for="dateOfBirth" class="form-label">Date Of Birth</label>
+    <input  class="form-control" type="date" [(ngModel)]="birth.dateOfBirth" name="dateOfBirth" id="dateOfBirth">
+  </div>
+<button type="submit" class="btn btn-success">Submit</button>
+  <button type="reset" class="btn btn-warning">Reset</button>
+</form>

@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import {BirthComponent} from "./birth/birth.component";
 import {BirthDetailComponent} from "./birth/birth-detail/birth-detail.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
+import {EditComponent} from "./birth/edit/edit.component";
 
 export const routes: Routes = [
   {
@@ -17,6 +18,10 @@ export const routes: Routes = [
   {
     path:"births/:id",
     component:BirthDetailComponent
+  },
+  {
+    path:'births/edit/:id',
+    component:EditComponent
   },
   {
     path:'**',
