@@ -1,0 +1,30 @@
+<a class="btn btn-success btn-lg" [routerLink]="['/deaths/add']">
+  <i class="bi bi-plus"></i>
+  Add New
+</a>
+<span *ngIf="message" class="alert alert-success me-2 w-50">{{message}}</span>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <td>
+      Name
+    </td>
+    <td>
+      Date Of Death
+    </td>
+    <td colspan="2">Actions</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let death of deaths;">
+    <td>{{death.firstName}} {{death.middleName}} {{death.lastName}}</td>
+    <td>{{death.dateOfDeath}}</td>
+    <td>
+      <a [routerLink]="['/deaths', death.id]" class="btn btn-primary"><i class="bi bi-eye">Details</i></a>
+      <a [routerLink]="['/deaths/edit', death.id]" class="btn btn-warning"><i class="bi bi-pencil">Edit</i></a>
+      <button class="btn btn-danger" (click)="deleteDeath(death?.id)"><i class="bi bi-trash"></i>Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+

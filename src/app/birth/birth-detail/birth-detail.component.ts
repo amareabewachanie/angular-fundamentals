@@ -1,6 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {ActivatedRoute, Router, RouterModule} from "@angular/router";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {Birth} from "../../shared/birth";
 
 @Component({
   selector: 'app-birth-detail',
@@ -16,14 +17,20 @@ export class BirthDetailComponent {
   router: Router =inject(Router);
   httpClient: HttpClient = inject(HttpClient);
   birthId :number = 0;
-  birth : any;
+  birth : Birth={
+    id: '0',
+    firstName:'',
+    lastName:'',
+    middleName:'',
+    dateOfBirth: new Date()
+  };
   constructor() {
     this.birthId = this.route.snapshot.params['id'];
     if(this.birthId){
-      this.httpClient.get(`http://localhost:3000/births/${this.birthId}`)
+      this.httpClient.get<Birth>(`http://localhost:3000/births/${this.birthId}`)
         .subscribe((birth)=>{
         this.birth = birth;
-        this.birth.fullName = this.birth.firstName + ' '+this.birth.middleName+' '+this.birth.lastName;
+        this.birth.firstName + ' '+this.birth.middleName+' '+this.birth.lastName;
       });
     }
   }
@@ -34,4 +41,6 @@ export class BirthDetailComponent {
        })
      }
   }
+
+  protected readonly parseInt = parseInt;
 }

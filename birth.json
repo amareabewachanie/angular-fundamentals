@@ -1,11 +1,12 @@
 {
-  "births": [
+  "births": [],
+  "deaths": [
     {
-      "id": "3",
-      "firstName": "Ekrem edited",
-      "middleName": "Mohammed",
-      "lastName": "Ahmed",
-      "dateOfBirth": "1992-01-01"
+      "id": "1",
+      "firstName": "Test",
+      "middleName": "Test",
+      "lastName": "Test",
+      "dateOfDeath": "2024-02-06"
     }
   ]
 }

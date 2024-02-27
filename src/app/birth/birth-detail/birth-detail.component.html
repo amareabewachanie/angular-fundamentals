@@ -1,10 +1,10 @@
 <h3>Birth Details</h3>
 <h6>Name:</h6>
-<p>{{birth?.fullName}}</p>
+<p>{{birth?.firstName}} {{birth.middleName}} {{birth.lastName}}</p>
 <h6>Date Of Birth</h6>
 <p>{{birth?.dateOfBirth }}</p>
 <div class="d-flex flex-row">
   <a  [routerLink]="['/births']" class="btn btn-primary btn-large">Back to Births</a>
   <a [routerLink]="['/births/edit',birth?.id]" class="btn btn-success btn-large">Edit</a>
-  <button type="button" (click)="deleteBirth(birth?.id)" class="btn btn-danger btn-large">Delete</button>
+  <button type="button" (click)="deleteBirth(parseInt(birth.id))" class="btn btn-danger btn-large">Delete</button>
 </div>

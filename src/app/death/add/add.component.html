@@ -1,0 +1,24 @@
+<a [routerLink]="['/deaths']" class="btn btn-primary"><i class="bi bi-back"></i>Back to List</a>
+<form #addForm="ngForm" (ngSubmit)="saveDeath(addForm)">
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="death.firstName" required>
+    <div class="text-danger" *ngIf="addForm.controls['firstName']?.touched && addForm.controls['firstName']?.invalid">First Name is Required</div>
+  </div>
+  <div class="form-group">
+    <label for="middleName">Middle Name</label>
+    <input type="text" class="form-control" id="middleName" name="middleName" [(ngModel)]="death.middleName" required>
+    <div class="text-danger" *ngIf="addForm.controls['middleName']?.touched && addForm.controls['middleName']?.invalid">Middle Name is Required</div>
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="death.lastName" required>
+    <div class="text-danger" *ngIf="addForm.controls['lastName']?.touched && addForm.controls['lastName']?.invalid">Last Name is Required</div>
+  </div>
+  <div class="form-group">
+    <label for="dateOfDeath">Date of Death</label>
+    <input type="date" class="form-control" id="dateOfDeath" name="dateOfDeath" [(ngModel)]="death.dateOfDeath">
+  </div>
+  <button class="btn btn-success" type="submit">Save</button>
+  <button class="btn btn-warning" type="reset">Reset</button>
+</form>
