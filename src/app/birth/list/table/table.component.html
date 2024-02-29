@@ -1,0 +1,32 @@
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <td>
+      Name
+    </td>
+    <td>
+      Date Of Birth
+    </td>
+    <td colspan="2">Actions</td>
+  </tr>
+  </thead>
+  <tbody *ngIf="births.length>0;else noBirthRecords;">
+  <tr *ngFor="let birth of births;">
+    <td>{{birth.firstName}} {{birth.middleName}} {{birth.lastName}}</td>
+    <td>{{birth.dateOfBirth}}</td>
+    <td>
+      <a [routerLink]="['/births', birth.id]" class="btn btn-primary"><i class="bi bi-eye">Details</i></a>
+      <a [routerLink]="['/births/edit', birth.id]" class="btn btn-warning"><i class="bi bi-pencil">Edit</i></a>
+      <button class="btn btn-danger" (click)="deleteBirth.emit(++birth.id)"><i class="bi bi-trash"></i>Delete</button>
+    </td>
+  </tr>
+  </tbody>
+  <ng-template #noBirthRecords>
+    <tbody>
+    <div class="center">
+      <i class="bi crad-heading"></i>
+      empty list
+    </div>
+    </tbody>
+  </ng-template>
+</table>

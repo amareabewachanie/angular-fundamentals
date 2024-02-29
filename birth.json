@@ -1,5 +1,13 @@
 {
-  "births": [],
+  "births": [
+    {
+      "id": "2",
+      "firstName": "Bellisa ",
+      "middleName": "Mohjammed",
+      "lastName": "Ahmed",
+      "dateOfBirth": "1992-12-12"
+    }
+  ],
   "deaths": [
     {
       "id": "1",

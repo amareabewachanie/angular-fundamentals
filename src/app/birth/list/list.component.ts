@@ -7,18 +7,15 @@ import {Birth} from "../../shared/birth";
 
 @Component({
   selector: 'app-list',
-  standalone: true,
-    imports: [
-        CommonModule,HttpClientModule,RouterModule
-    ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
 export class ListComponent implements OnInit{
   births: Birth[]=[];
-  httpClient:HttpClient = inject(HttpClient);
   message:string='';
-  alerService : AlertService = inject(AlertService);
+  displayType: number=0;
+  constructor(private httpClient: HttpClient,private alertService: AlertService) {
+  }
   ngOnInit() {
     this.loadBirths();
   }
@@ -29,11 +26,11 @@ export class ListComponent implements OnInit{
       }
     )
   }
-  deleteBirth(id: string){
+  deleteBirth(id: number){
     if(confirm('Are you sure you want to delete?')){
       this.httpClient.delete(`http://localhost:3000/births/${id}`).subscribe(()=>{
         this.message = 'User deleted successfully!!!';
-        this.alerService.success(this.message);
+        this.alertService.success(this.message);
         this.loadBirths();
       });
     }

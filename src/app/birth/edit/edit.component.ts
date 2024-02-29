@@ -7,16 +7,10 @@ import {Birth} from "../../shared/birth";
 
 @Component({
   selector: 'app-edit',
-  standalone: true,
-  imports: [HttpClientModule,RouterModule,FormsModule],
   templateUrl: './edit.component.html',
   styleUrl: './edit.component.css'
 })
 export class EditComponent {
-  httpClient: HttpClient =inject(HttpClient)
-  router: ActivatedRoute = inject(ActivatedRoute)
-  route: Router = inject(Router)
-  alertService: AlertService = inject(AlertService);
  birth: Birth={
    id: '0',
    firstName:'',
@@ -24,8 +18,8 @@ export class EditComponent {
    middleName:'',
    dateOfBirth: new Date()
  };
- constructor() {
-   const id = this.router.snapshot.params['id'];
+ constructor(private httpClient:HttpClient,private router:Router,private route: ActivatedRoute,private alertService:AlertService) {
+   const id = this.route.snapshot.params['id'];
    if(id){
      this.httpClient.get<Birth>(`http://localhost:3000/births/${id}`).subscribe((birth)=>{
        this.birth = birth;
@@ -35,7 +29,7 @@ export class EditComponent {
   saveBirth(){
    this.httpClient.put(`http://localhost:3000/births/${this.birth.id}`,this.birth).subscribe(()=>{
      this.alertService.success('You have edited successfully!')
-     this.route.navigate(['/births']);
+     this.router.navigate(['/births']);
    })
   }
 }

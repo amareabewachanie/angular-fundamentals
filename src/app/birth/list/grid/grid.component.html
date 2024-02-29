@@ -1,0 +1,19 @@
+<div class="row">
+<div class="card col-3 d-flex me-2" *ngFor="let birth of births;">
+  <div class="card-header">
+    {{birth.firstName}} {{birth.middleName}} {{birth.lastName}}
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>this is bio of the above person</p>
+      <footer class="blockquote-footer">
+      <div class="d-flex me-3">
+        <a [routerLink]="['/births',birth.id]" class="btn btn-primary"><i class="bi bi-eye"></i>Details</a>
+        <a [routerLink]="['/births/edit',birth.id]" class="btn btn-warning"><i class="bi bi-pencil"></i>Edit</a>
+        <button  class="btn btn-danger" (click)="deleteBirth.emit(++birth.id)"><i class="bi border-danger"></i>Delete</button>
+      </div>
+      </footer>
+    </blockquote>
+  </div>
+</div>
+</div>

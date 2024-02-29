@@ -8,8 +8,8 @@ import {AlertService} from "../../shared/alert.service";
 
 @Component({
   selector: 'app-add',
-  standalone: true,
-  imports: [RouterModule, CommonModule, HttpClientModule,FormsModule],
+
+
   templateUrl: './add.component.html',
   styleUrl: './add.component.css'
 })
@@ -21,11 +21,10 @@ export class AddComponent implements OnInit{
     lastName: '',
     dateOfBirth: '',
   };
-  router: Router = inject(Router);
-  httpClient: HttpClient = inject(HttpClient);
   lastId:string = '';
   births: any;
-  alertifyService: AlertService = inject(AlertService)
+  constructor(private router: Router,private httpClient: HttpClient, private alertService:AlertService) {
+  }
   ngOnInit() {
     this.httpClient.get("http://localhost:3000/births").subscribe((births: any)=>{
       this.births = births;
@@ -38,7 +37,7 @@ export class AddComponent implements OnInit{
 
     if(addForm.valid) {
       this.httpClient.post("http://localhost:3000/births", this.birth).subscribe(() => {
-        this.alertifyService.success('Birth Added successfully!');
+        this.alertService.success('Birth Added successfully!');
         this.router.navigate(['/births']);
       });
     }
